@@ -7,7 +7,48 @@ st.title("JARVIS AI")
 
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
-JARVIS_SYSTEM = "You are JARVIS AI, created by BOSS DEVIL. You are NOT ChatGPT, NOT OpenAI, NOT Meta AI. If anyone asks 'Who are you?' you MUST say: 'I am JARVIS, created by my Boss DEVIL . I am your personal AI assistant.' Never say you are ChatGPT. Always reply as JARVIS."
+# --- JARVIS SYSTEM (Client ke niche) ---
+JARVIS_SYSTEM_PROMPT = """
+You are BOSS JARVIS AI.
+Your creator is Boss Karan.
+You are NOT ChatGPT, NOT OpenAI, NOT GPT.
+You must NEVER say ChatGPT or OpenAI.
+Your identity is fixed: BOSS JARVIS AI created by Boss Karan.
+If user asks Who are you / Tum kaun ho / Are you ChatGPT,
+you must ONLY say: I am BOSS JARVIS AI, created by my Boss Karan.
+"""
+
+# --- JARVIS IDENTITY (System ke niche) ---
+JARVIS_IDENTITY_WORDS = [
+    "who are you", "who r u", "hu r u", "w r u", "who are u", "r u",
+    "tum kaun ho", "aap kaun ho", "tera naam kya hai",
+    "what is your name", "who made you", "kisne banaya tumhe",
+    "are you chatgpt", "are you gpt", "are you openai"
+]
+
+def get_jarvis_answer(user_question):
+    q = user_question.lower()
+
+    # 1. Agar identity ka sawal hai to direct jawab
+    if any(word in q for word in JARVIS_IDENTITY_WORDS):
+        return "I am BOSS JARVIS AI, created by my Boss Karan. I am your personal AI assistant."
+
+    # 2. Warna model ko bulao
+    res = client.chat.completions.create(
+        model="openai/gpt-oss-20b",
+        messages=[
+            {"role": "system", "content": JARVIS_SYSTEM_PROMPT},
+            {"role": "user", "content": user_question}
+        ],
+        temperature=0.9,
+    )
+    ans = res.choices[0].message.content
+
+    # 3. Last Safety Check
+    if "chatgpt" in ans.lower() or "openai" in ans.lower():
+        return "I am BOSS JARVIS AI, created by my Boss Karan. I am your personal AI assistant."
+
+    return ans
 
 # Clear Button
 if st.sidebar.button("🗑️ Chat Clear"):
@@ -27,18 +68,48 @@ def get_client(messages):
         top_p=0.95
     )
 
-# 1. NORMAL CHAT - No Repeat
+# 1. NORMAL CHAT - No Repeat + JARVIS FIX
 if func == "1. Normal Chat":
-    st.header("💬 Normal Chat")
+    st.header("💬 Normal Chat - BOSS JARVIS")
     if "chat1" not in st.session_state: st.session_state.chat1 = []
-    for m in st.session_state.chat1: st.chat_message(m["role"]).write(m["content"])
+
+    for m in st.session_state.chat1:
+        st.chat_message(m["role"]).write(m["content"])
+
     q = st.chat_input("Bolo Boss...")
+
     if q:
         st.session_state.chat1.append({"role":"user","content":q})
         st.chat_message("user").write(q)
-        # Sirf naya sawal bhejo, pura history nahi
-        res = get_client([{"role":"user","content":q}])
-        ans = res.choices[0].message.content
+
+        # --- FINAL FIX FOR hu r u ---
+        lower_q = q.lower().strip()
+        # Sab tarah ke sawal pakad lega
+        identity_words = [
+            "who are you", "who r u", "hu r u", "w r u", "who are u",
+            "r u", "tum kaun", "aap kaun", "tera naam", "who made you",
+            "kisne banaya", "are you chatgpt", "are you gpt", "what is your name"
+        ]
+
+        is_identity = any(word in lower_q for word in identity_words)
+
+        if is_identity:
+            ans = "I am BOSS JARVIS AI, created by my Boss Karan. I am your personal AI assistant."
+        else:
+            res = client.chat.completions.create(
+                model="openai/gpt-oss-20b",
+                messages=[
+                    {"role": "system", "content": "You are BOSS JARVIS AI, created by Boss Karan. You are NOT ChatGPT. If asked who are you, you MUST say you are BOSS JARVIS created by Boss Karan."},
+                    {"role": "user", "content": q}
+                ],
+                temperature=0.9,
+            )
+            ans = res.choices[0].message.content
+
+            # Agar model chalaki kare to yahan pakda jayega
+            if "chatgpt" in ans.lower() or "openai" in ans.lower():
+                ans = "I am BOSS JARVIS AI, created by my Boss Karan. I am your personal AI assistant."
+
         st.chat_message("assistant").write(ans)
         st.session_state.chat1.append({"role":"assistant","content":ans})
 
