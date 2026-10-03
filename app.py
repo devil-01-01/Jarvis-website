@@ -70,7 +70,7 @@ def get_client(messages):
 
 # 1. NORMAL CHAT - No Repeat + JARVIS FIX
 if func == "1. Normal Chat":
-    st.header("💬 Normal Chat - BOSS JARVIS")
+    st.header("💬 Normal Chat - JARVIS")
     if "chat1" not in st.session_state: st.session_state.chat1 = []
 
     for m in st.session_state.chat1:
@@ -94,12 +94,12 @@ if func == "1. Normal Chat":
         is_identity = any(word in lower_q for word in identity_words)
 
         if is_identity:
-            ans = "I am BOSS JARVIS AI, created by my Boss Karan. I am your personal AI assistant."
+            ans = "I am JARVIS AI, created by my Boss DEVIL. I am your personal AI assistant."
         else:
             res = client.chat.completions.create(
                 model="openai/gpt-oss-20b",
                 messages=[
-                    {"role": "system", "content": "You are BOSS JARVIS AI, created by Boss Karan. You are NOT ChatGPT. If asked who are you, you MUST say you are BOSS JARVIS created by Boss Karan."},
+                    {"role": "system", "content": "You are JARVIS AI, created by Boss DEVIL. You are NOT ChatGPT. If asked who are you, you MUST say you are JARVIS created by Boss DEVIL."},
                     {"role": "user", "content": q}
                 ],
                 temperature=0.9,
@@ -108,7 +108,7 @@ if func == "1. Normal Chat":
 
             # Agar model chalaki kare to yahan pakda jayega
             if "chatgpt" in ans.lower() or "openai" in ans.lower():
-                ans = "I am BOSS JARVIS AI, created by my Boss Karan. I am your personal AI assistant."
+                ans = "I am JARVIS AI, created by my Boss DEVIL. I am your personal AI assistant."
 
         st.chat_message("assistant").write(ans)
         st.session_state.chat1.append({"role":"assistant","content":ans})
