@@ -1,0 +1,7 @@
+streamlit
+fastapi
+uvicorn
+transformers
+torch
+accelerate
+sympy
