@@ -4,7 +4,7 @@ import time
 # Page config
 st.set_page_config(
     page_title="JARVIS",
-    page_icon="🤖",
+    page_icon="J",
     layout="wide"
 )
 
