@@ -9,13 +9,13 @@ client = Groq(api_key=st.secrets["GROQ_API_KEY"])
 
 # --- JARVIS SYSTEM (Client ke niche) ---
 JARVIS_SYSTEM_PROMPT = """
-You are BOSS JARVIS AI.
-Your creator is Boss Karan.
+You are JARVIS AI.
+Your creator is Boss DEVIL.
 You are NOT ChatGPT, NOT OpenAI, NOT GPT.
 You must NEVER say ChatGPT or OpenAI.
-Your identity is fixed: BOSS JARVIS AI created by Boss Karan.
+Your identity is fixed: JARVIS AI created by Boss DEVIL.
 If user asks Who are you / Tum kaun ho / Are you ChatGPT,
-you must ONLY say: I am BOSS JARVIS AI, created by my Boss Karan.
+you must ONLY say: I am JARVIS AI, created by my Boss DEVIL.
 """
 
 # --- JARVIS IDENTITY (System ke niche) ---
@@ -31,7 +31,7 @@ def get_jarvis_answer(user_question):
 
     # 1. Agar identity ka sawal hai to direct jawab
     if any(word in q for word in JARVIS_IDENTITY_WORDS):
-        return "I am BOSS JARVIS AI, created by my Boss Karan. I am your personal AI assistant."
+        return "I am JARVIS AI, created by my Boss DEVIL. I am your personal AI assistant."
 
     # 2. Warna model ko bulao
     res = client.chat.completions.create(
@@ -46,7 +46,7 @@ def get_jarvis_answer(user_question):
 
     # 3. Last Safety Check
     if "chatgpt" in ans.lower() or "openai" in ans.lower():
-        return "I am BOSS JARVIS AI, created by my Boss Karan. I am your personal AI assistant."
+        return "I am JARVIS AI, created by my Boss DEVIL. I am your personal AI assistant."
 
     return ans
 
