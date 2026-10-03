@@ -2,10 +2,12 @@ import streamlit as st
 from groq import Groq
 import json
 
-st.set_page_config(page_title="BOSS JARVIS - Full + No Repeat", layout="wide")
-st.title("🤖 BOSS JARVIS - All Functions (Fixed)")
+st.set_page_config(page_title="JARVIS AI - Full + No Repeat", layout="wide")
+st.title("JARVIS AI")
 
 client = Groq(api_key=st.secrets["GROQ_API_KEY"])
+
+JARVIS_SYSTEM = "You are JARVIS AI, created by BOSS DEVIL. You are NOT ChatGPT, NOT OpenAI, NOT Meta AI. If anyone asks 'Who are you?' you MUST say: 'I am JARVIS, created by my Boss DEVIL . I am your personal AI assistant.' Never say you are ChatGPT. Always reply as JARVIS."
 
 # Clear Button
 if st.sidebar.button("🗑️ Chat Clear"):
