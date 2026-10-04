@@ -14,10 +14,17 @@ st.markdown("""
     [data-testid="stToolbar"]{display:none!important;}
     footer{visibility:hidden!important;}
     #MainMenu{visibility:hidden!important;}
-    
-    /* YE 2 LINE SPACE KHATAM KAREGI BOSS */
-    div.block-container{padding-top: 0rem !important; margin-top: -5px !important;}
-    h1{padding-top: 0px !important; margin-top: 0px !important;}
+
+    /* YE FINAL FIX HAI - TITLE DIKHEGA */
+    div.block-container {
+        padding-top: 2rem !important;
+    }
+    h1 {
+        display: block !important;
+        visibility: visible !important;
+        margin-top: 0px !important;
+        padding-top: 5px !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
