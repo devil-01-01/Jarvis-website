@@ -3,3 +3,4 @@ groq
 google-generativeai
 Pillow
 requests
+urllib3
