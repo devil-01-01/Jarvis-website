@@ -8,7 +8,18 @@ import streamlit.components.v1 as components
 
 # 2. PAGE CONFIG
 st.set_page_config(page_title="JARVIS AI", page_icon="🤖", layout="wide")
-st.markdown("""<style>.stDeployButton{display:none!important;}[data-testid="stToolbar"]{display:none!important;}footer{visibility:hidden!important;}#MainMenu{visibility:hidden!important;}</style>""", unsafe_allow_html=True)
+st.markdown("""
+<style>
+    .stDeployButton{display:none!important;}
+    [data-testid="stToolbar"]{display:none!important;}
+    footer{visibility:hidden!important;}
+    #MainMenu{visibility:hidden!important;}
+    
+    /* YE 2 LINE SPACE KHATAM KAREGI BOSS */
+    div.block-container{padding-top: 0rem !important; margin-top: -70px !important;}
+    h1{padding-top: 0px !important; margin-top: 0px !important;}
+</style>
+""", unsafe_allow_html=True)
 
 # 3. MODELS - FLUX ONLY, NO NANO BANANA
 GROQ_MODEL_NAME = "openai/gpt-oss-20b"
