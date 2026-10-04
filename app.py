@@ -27,16 +27,16 @@ MODEL_LIST = ["Gemini 3.8 Flash - LATEST", "Groq - openai/gpt-oss-20b", "Gemini 
 
 MODES = {
     "💬 Normal Chat (All in One)": "You are JARVIS AI, created by Boss DEVIL. You can do everything.",
-    "🖼️ Image Creating": "IMAGE_MODE",
-    "💻 Code Helper": "You are Code Expert.",
-    "🧮 Math Solver": "You are Math Genius. Solve with LaTeX $...$",
-    "🎨 Image Prompt": "You are Image Prompt Expert.",
-    "📖 Story Writer": "You are Story Writer.",
-    "🔥 Roast Mode": "You are Roast King.",
-    "📚 Study Helper": "You are Study Helper.",
+    "Image Creating": "IMAGE_MODE",
+    "Code Helper": "You are Code Expert.",
+    "Math Solver": "You are Math Genius. Solve with LaTeX $...$",
+    "Image Prompt": "You are Image Prompt Expert.",
+    "Story Writer": "You are Story Writer.",
+    "Roast Mode": "You are Roast King.",
+    "Study Helper": "You are Study Helper.",
     "🌐 Translator": "You are Translator.",
     "✉️ Email Writer": "You are Email Expert.",
-    "🎬 Video Creating": "VIDEO_MODE",
+    "Video Creating": "VIDEO_MODE",
 }
 
 # 4. SECRET - 0 TO INFINITY ✅
