@@ -16,7 +16,7 @@ st.markdown("""
     #MainMenu{visibility:hidden!important;}
     
     /* YE 2 LINE SPACE KHATAM KAREGI BOSS */
-    div.block-container{padding-top: 0rem !important; margin-top: -70px !important;}
+    div.block-container{padding-top: 0rem !important; margin-top: -10px !important;}
     h1{padding-top: 0px !important; margin-top: 0px !important;}
 </style>
 """, unsafe_allow_html=True)
