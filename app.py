@@ -166,3 +166,18 @@ elif func == "7. Summarizer":
     if st.button("Summarize") and txt:
         res = get_client([{"role":"user","content":f"Summarize fresh, don't repeat old summary: {txt}"}])
         st.write(res.choices[0].message.content)
+
+import streamlit as st
+
+st.sidebar.title("Legal")
+if st.sidebar.button("Privacy Policy"):
+    st.markdown("""
+    ### Privacy Policy for JARVIS
+    **Contact:** Jarviswap.support@gmail.com
+    **Last updated:** 4 Oct 2026
+    
+    We do not collect data from children under 13.
+    We do not sell your data.
+    For any query contact us at Jarviswap.support@gmail.com
+    Full Policy: We collect only your queries to improve JARVIS. You can request data deletion anytime via email.
+    """)
