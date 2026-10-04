@@ -168,7 +168,7 @@ if page == "Privacy Policy":
     st.title("🔒 Privacy Policy")
     st.markdown("© 2026 JARVIS AI | Created by Boss DEVIL | All data searched via Google CSE")
 else:
-    st.title("JARVIS AI - No More API Error 🤖")
+    st.title("JARVIS AI - 🤖")
     c1, c2 = st.columns(2)
     with c1: selected_model = st.selectbox("Model Change", MODEL_LIST, index=0, key="main_model")
     with c2: selected_mode_name = st.selectbox("Mode Change", list(MODES.keys()), key="main_mode")
