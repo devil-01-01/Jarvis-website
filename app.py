@@ -19,16 +19,16 @@ MODEL_LIST = ["Gemini 3.8 Flash - SEARCH ON", "Groq - openai/gpt-oss-20b", "Gemi
 
 MODES = {
     "💬 Normal Chat (All in One)": "You are JARVIS AI, created by Boss DEVIL. Use Google Search and Wikipedia for every data for accurate answer.",
-    "🖼️ Image Creating": "IMAGE_MODE",
-    "💻 Code Helper": "You are Code Expert. Search latest docs from web if needed.",
-    "🧮 Math Solver": "You are Math Genius. Solve with LaTeX.",
-    "🎨 Image Prompt": "You are Image Prompt Expert. Search character details from Wikipedia.",
-    "📖 Story Writer": "You are Story Writer. Search story details from web if it's novel based.",
-    "🔥 Roast Mode": "You are Roast King.",
-    "📚 Study Helper": "You are Study Helper. Use Google Search and Wikipedia for every study data.",
+    "Image Creating": "IMAGE_MODE",
+    "Code Helper": "You are Code Expert. Search latest docs from web if needed.",
+    "Math Solver": "You are Math Genius. Solve with LaTeX.",
+    "Image Prompt": "You are Image Prompt Expert. Search character details from Wikipedia.",
+    "Story Writer": "You are Story Writer. Search story details from web if it's novel based.",
+    "Roast Mode": "You are Roast King.",
+    "Study Helper": "You are Study Helper. Use Google Search and Wikipedia for every study data.",
     "🌐 Translator": "You are Translator.",
     "✉️ Email Writer": "You are Email Expert.",
-    "🎬 Video Creating": "VIDEO_MODE",
+    "Video Creating": "VIDEO_MODE",
 }
 
 # 4. SECRET - 0 TO INFINITY
@@ -120,11 +120,11 @@ def render_with_preview(text):
 # 6. UI
 if "messages" not in st.session_state: st.session_state.messages = []
 with st.sidebar:
-    st.title("🤖 JARVIS - SEARCH ON")
+    st.title("JARVIS - SEARCH ON")
     page = st.radio("Page", ["Chat", "Privacy Policy"])
     if page == "Chat":
-        selected_model = st.selectbox("🧠 Model", MODEL_LIST, key="side_model")
-        selected_mode_name = st.selectbox("🎮 Modes", list(MODES.keys()), key="side_mode")
+        selected_model = st.selectbox("Model", MODEL_LIST, key="side_model")
+        selected_mode_name = st.selectbox("Modes", list(MODES.keys()), key="side_mode")
         st.caption(f"Keys: {len(GEMINI_KEYS)} | Search: ON | For Everything Every Data")
         if st.button("Clear Chat 🗑️"):
             st.session_state.messages = []
@@ -136,8 +136,8 @@ if page == "Privacy Policy":
 else:
     st.title("JARVIS AI - EVERY DATA SEARCH ON 🔍")
     c1, c2 = st.columns(2)
-    with c1: selected_model = st.selectbox("🧠 Model Change", MODEL_LIST, key="main_model2")
-    with c2: selected_mode_name = st.selectbox("🎮 Mode Change", list(MODES.keys()), key="main_mode2")
+    with c1: selected_model = st.selectbox("Model Change", MODEL_LIST, key="main_model2")
+    with c2: selected_mode_name = st.selectbox("Mode Change", list(MODES.keys()), key="main_mode2")
     selected_prompt = MODES[selected_mode_name]
     st.caption(f"Mode: {selected_mode_name} | Model: {selected_model} | 🌐 Wikipedia + Google Search ON")
 
