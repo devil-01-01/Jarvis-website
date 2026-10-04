@@ -7,6 +7,14 @@ import streamlit.components.v1 as components
 
 # 2. PAGE CONFIG - CHECKED ✅
 st.set_page_config(page_title="JARVIS AI", page_icon="🤖", layout="wide")
+    st.title("JARVIS AI")
+    # MODEL CHANGE FIX - Main page pe bhi - CHECKED ✅
+    c1, c2 = st.columns(2)
+    with c1:
+        selected_model = st.selectbox("🧠 Model Change", MODEL_LIST, key="main_model")
+    with c2:
+        selected_mode_name = st.selectbox("🎮 Mode Change", list(MODES.keys()), key="main_mode")
+    selected_prompt = MODES[selected_mode_name]
 
 # 3. MODEL - CHECKED ✅ - GEMINI 3 LATEST
 GROQ_MODEL_NAME = "openai/gpt-oss-20b"
@@ -44,13 +52,18 @@ except:
 
 client = Groq(api_key=GROQ_API_KEY) # Client line - CHECKED ✅
 
-# 5. LOGO HIDE - CHECKED ✅
+# 5. LOGO HIDE - FIXED ✅ - Sidebar button rahega, logo hide hoga
 st.markdown("""
 <style>
-header{visibility:hidden!important;} #MainMenu{visibility:hidden!important;}
-[data-testid="stToolbar"]{display:none!important;}.stDeployButton{display:none!important;}
-footer{visibility:hidden!important;}
-[data-testid="stStatusWidget"]{display:none!important;}
+/* Sirf GitHub, Fork, Crown wale icons hide - Header nahi */
+.stDeployButton {display:none!important;}
+[data-testid="stToolbar"] {display:none!important;}
+footer {visibility:hidden!important;}
+#MainMenu {visibility:hidden!important;}
+[data-testid="stStatusWidget"] {display:none!important;}
+
+/* Mobile pe sidebar button dikhega */
+header {visibility: visible!important;}
 </style>
 """, unsafe_allow_html=True)
 
