@@ -7,7 +7,6 @@ import streamlit.components.v1 as components
 
 # 2. PAGE CONFIG - CHECKED ✅
 st.set_page_config(page_title="JARVIS AI", page_icon="🤖", layout="wide")
-    st.title("JARVIS AI")
     # MODEL CHANGE FIX - Main page pe bhi - CHECKED ✅
     c1, c2 = st.columns(2)
     with c1:
