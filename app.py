@@ -12,7 +12,7 @@ st.markdown("""<style>.stDeployButton{display:none!important;}[data-testid="stTo
 
 # 3. MODELS - FLUX ONLY, NO NANO BANANA
 GROQ_MODEL_NAME = "openai/gpt-oss-20b"
-GEMINI_MODEL_NAME = "gemini-1.5-flash"
+GEMINI_MODEL_NAME = "gemini-3.5-flash"
 HF_API_URL = "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell"
 MODEL_LIST = ["Groq - Fastest (No Error)", "Gemini 1.5 Flash - SEARCH ON", "FLUX.1 - Image Gen"]
 
