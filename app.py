@@ -176,7 +176,7 @@ if prompt := st.chat_input("Bolo Boss, kya chahiye? ✨"):
             st.markdown(ans)
             st.session_state.messages.append({"role":"assistant","content":ans})
 
-      if page == "Privacy Policy":
+if page == "Privacy Policy":
     st.title("🔒 Privacy Policy - JARVIS AI")
     st.caption("Last Updated: 4 Oct 2026 | Created by Boss DEVIL")
 
