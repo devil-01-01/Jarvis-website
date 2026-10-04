@@ -96,7 +96,7 @@ def get_client(messages):
 # 1. NORMAL CHAT
 # ==========================================================
 if func == "1. Normal Chat":
-    st.header(f"💬 Normal Chat - JARVIS ({selected_model})")
+    st.header(f"💬 Normal Chat - JARVIS")
     if "chat1" not in st.session_state: st.session_state.chat1 = []
     for m in st.session_state.chat1:
         st.chat_message(m["role"]).write(m["content"])
@@ -118,7 +118,7 @@ if func == "1. Normal Chat":
 # 2. STREAMING CHAT
 # ==========================================================
 elif func == "2. Streaming Chat":
-    st.header(f"⚡ Streaming - {selected_model}")
+    st.header(f"⚡ Streaming")
     q = st.text_input("Sawal:", key="s2")
     if q:
         if selected_model == "Gemini 2.0 Flash":
@@ -142,7 +142,7 @@ elif func == "2. Streaming Chat":
 # 3. CODE GENERATOR
 # ==========================================================
 elif func == "3. Code Generator":
-    st.header(f"💻 Code Generator - {selected_model}")
+    st.header(f"💻 Code Generator")
     q = st.text_input("Kaisa code?", key="s3")
     if q:
         if selected_model == "Gemini 2.0 Flash":
@@ -156,7 +156,7 @@ elif func == "3. Code Generator":
 # 4. MATH SOLVER
 # ==========================================================
 elif func == "4. Math Solver":
-    st.header(f"🧮 Math Solver - {selected_model}")
+    st.header(f"🧮 Math Solver")
     q = st.text_input("Math Problem:", key="s4")
     if q:
         ans = get_jarvis_answer(q, selected_model)
@@ -166,7 +166,7 @@ elif func == "4. Math Solver":
 # 5. TOOL CALLING - DONO MODEL PE
 # ==========================================================
 elif func == "5. Tool Calling":
-    st.header(f"🛠️ Tool Calling - {selected_model}")
+    st.header(f"🛠️ Tool Calling")
     q = st.text_input("Ex: Delhi weather?", key="s5")
     if q:
         if selected_model == "Gemini 2.0 Flash":
@@ -190,7 +190,7 @@ elif func == "5. Tool Calling":
 # 6. JSON MODE - DONO MODEL PE
 # ==========================================================
 elif func == "6. JSON Mode":
-    st.header(f"📦 JSON Mode - {selected_model}")
+    st.header(f"📦 JSON Mode")
     q = st.text_input("Ex: 2 phones in JSON", key="s6")
     if q:
         if selected_model == "Gemini 2.0 Flash":
@@ -205,7 +205,7 @@ elif func == "6. JSON Mode":
 # 7. SUMMARIZER
 # ==========================================================
 elif func == "7. Summarizer":
-    st.header(f"📝 Summarizer - {selected_model}")
+    st.header(f"📝 Summarizer")
     txt = st.text_area("Text paste karo:", key="s7")
     if st.button("Summarize") and txt:
         ans = get_jarvis_answer(f"Summarize fresh, don't repeat old summary: {txt}", selected_model)
