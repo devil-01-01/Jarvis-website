@@ -1,6 +1,6 @@
 streamlit
 groq
-google-genai
-requests
+google-generativeai
 Pillow
+requests
 huggingface_hub
