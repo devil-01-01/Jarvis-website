@@ -480,4 +480,4 @@ def get_text_answer(prompt: str, selected_model: str, system_prompt: str) -> str
 def generate_flux_image(prompt: str):
     enhanced = google_custom_search(f"{prompt} anime")
     lower = (enhanced + " " + prompt).lower()
-    is_male = any(k in lower for k i
+    is_male = any(k in lower for k in)
