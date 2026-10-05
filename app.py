@@ -281,7 +281,7 @@ if not st.session_state.authenticated:
                         ok, err = send_real_otp(email, otp)
                         if ok:
                             st.success(f"✅ OTP sent to {email}")
-                         else:
+                        else:
                             st.error(f"❌ {err}")
                     
           otp_g = st.text_input("Enter OTP", type="password", placeholder="6 Digit OTP", key="otp_gmail", label_visibility="collapsed")
@@ -319,7 +319,7 @@ if not st.session_state.authenticated:
                         ok, err = send_phone_otp(clean_phone, otp)
                         if ok:
                             st.success(f"✅ OTP sent to {clean_phone}")
-                         else:
+                        else:
                             st.error(f"❌ {err}")
     
             otp_p = st.text_input("Enter OTP", type="password", placeholder="6 Digit OTP", key="otp_phone", label_visibility="collapsed")
