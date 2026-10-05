@@ -226,10 +226,13 @@ def send_phone_otp(phone: str, otp: str):
             return False, "FAST2SMS_API_KEY secrets mein missing hai!"
         
         url = "https://www.fast2sms.com/dev/bulkV2"
+        
+        # Route ko 'otp' ki jagah 'q' (Quick SMS) kar diya gaya hai
         querystring = {
             "authorization": FAST2SMS_API_KEY,
-            "variables_values": otp,
-            "route": "otp",
+            "message": f"Your JARVIS AI verification code is {otp}. Valid for 5 minutes.",
+            "language": "english",
+            "route": "q",
             "numbers": phone
         }
         
@@ -242,7 +245,7 @@ def send_phone_otp(phone: str, otp: str):
             return False, res_data.get("message", "SMS Send failed")
     except Exception as e:
         return False, str(e)
-
+                   
 # -----------------------------------------------------------------------------
 # 5. AUTHENTICATION SYSTEM
 # -----------------------------------------------------------------------------
@@ -276,9 +279,12 @@ if not st.session_state.authenticated:
                     st.session_state.otp_time = time.time()
                     with st.spinner("Sending clean email..."):
                         ok, err = send_real_otp(email, otp)
-                        st.success(f"✅ OTP sent to {email}") if ok else st.error(f"❌ {err}")
-
-            otp_g = st.text_input("Enter OTP", type="password", placeholder="6 Digit OTP", key="otp_gmail", label_visibility="collapsed")
+                        if ok:
+                            st.success(f"✅ OTP sent to {email}")
+                         else:
+                            st.error(f"❌ {err}")
+                    
+          otp_g = st.text_input("Enter OTP", type="password", placeholder="6 Digit OTP", key="otp_gmail", label_visibility="collapsed")
             st.write("")
             if st.button("Verify & Continue", use_container_width=True, type="primary", key="verify_gmail"):
                 if "otp" not in st.session_state:
@@ -311,8 +317,11 @@ if not st.session_state.authenticated:
                     st.session_state.otp_time = time.time()
                     with st.spinner("Sending SMS..."):
                         ok, err = send_phone_otp(clean_phone, otp)
-                        st.success(f"✅ OTP sent to {clean_phone}") if ok else st.error(f"❌ {err}")
-
+                        if ok:
+                            st.success(f"✅ OTP sent to {clean_phone}")
+                         else:
+                            st.error(f"❌ {err}")
+    
             otp_p = st.text_input("Enter OTP", type="password", placeholder="6 Digit OTP", key="otp_phone", label_visibility="collapsed")
             st.write("")
             if st.button("Verify & Continue", use_container_width=True, type="primary", key="verify_phone"):
