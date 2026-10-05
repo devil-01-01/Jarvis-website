@@ -14,14 +14,14 @@ AUTHORIZE_URL = "https://accounts.google.com/o/oauth2/v2/auth"
 TOKEN_URL = "https://oauth2.googleapis.com/token"
 REVOKE_URL = "https://oauth2.googleapis.com/revoke"
 
-# Initialize OAuth Component
+# Initialize OAuth Component (Correct Syntax)
 oauth2 = OAuth2Component(
-    client_id=CLIENT_ID,
-    client_secret=CLIENT_SECRET,
-    authorize_endpoint=AUTHORIZE_URL,
-    access_token_endpoint=TOKEN_URL,
-    refresh_token_endpoint=TOKEN_URL,
-    revoke_token_endpoint=REVOKE_URL
+    CLIENT_ID,
+    CLIENT_SECRET,
+    AUTHORIZE_URL,
+    TOKEN_URL,
+    TOKEN_URL,
+    REVOKE_URL
 )
 
 # Session state initialization for login
