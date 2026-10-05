@@ -1,9 +1,0 @@
-streamlit
-streamlit-oauth
-extra-streamlit-components
-google-generativeai
-groq
-pillow
-requests
-huggingface_hub
-torch
