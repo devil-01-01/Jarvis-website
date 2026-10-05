@@ -140,17 +140,17 @@ def get_safe_cookie(cookie_name):
 # -----------------------------------------------------------------------------
 # 3. CONFIGURATION & SECRETS
 # -----------------------------------------------------------------------------
-GROQ_MODEL_NAME = "llama-3.3-70b-versatile"
-GEMINI_MODEL_NAME = "gemini-1.5-flash"
+GROQ_MODEL_NAME = "openai/gpt-oss-20b"
+GEMINI_MODEL_NAME = "gemini-3.6-flash"
 HF_API_URL = "https://api-inference.huggingface.co/models/black-forest-labs/FLUX.1-schnell"
 
-MODEL_LIST = ["⚡ JARVIS-GPT (Groq)", "✨ JARVIS-GEMINI", "🎨 JARVIS-FLUX"]
+MODEL_LIST = ["⚡ JARVIS-GPT ", "✨ JARVIS-GEMINI", "🎨 JARVIS-FLUX"]
 
 MODES = {
     "💬 Normal Chat (All in One)": "You are JARVIS AI, created by Boss DEVIL. Helpful and smart.",
-    "🎨 Image Generator": "IMAGE_MODE",
-    "💻 Code Assistant": "You are Code Expert. Provide clean code with preview.",
-    "🧮 Math Solver": "You are Math Genius. Solve step by step.",
+    "Image Generator": "IMAGE_MODE",
+    "Code Assistant": "You are Code Expert. Provide clean code with preview.",
+    "Math Solver": "You are Math Genius. Solve step by step.",
     "📚 Study Guide": "You are Study Helper. Explain simply.",
     "🔥 Roast Master": "You are Roast King - funny roasting.",
     "📖 Story Teller": "You are Story Writer.",
