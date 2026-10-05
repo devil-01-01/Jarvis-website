@@ -1,7 +1,8 @@
 streamlit
-groq
+streamlit-oauth
+extra-streamlit-components
 google-generativeai
-Pillow
+groq
+pillow
 requests
 huggingface_hub
-extra-streamlit-components 
