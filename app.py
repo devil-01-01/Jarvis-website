@@ -480,4 +480,30 @@ def get_text_answer(prompt: str, selected_model: str, system_prompt: str) -> str
 def generate_flux_image(prompt: str):
     enhanced = google_custom_search(f"{prompt} anime")
     lower = (enhanced + " " + prompt).lower()
-    is_male = any(k in lower for k in)
+    
+    # FIXED: Added the list of keywords after 'for k in'
+    is_male = any(k in lower for k in ["xiao yan", "tang san", "male", "boy"])
+    
+    final_prompt = f"{prompt}, 1boy, handsome male" if is_male else f"{prompt}, ultra detailed anime, 8k, {enhanced[:200]}"
+    negative = "1girl" if is_male else "ugly, blurry"
+    
+    if HF_API_KEY:
+        try:
+            headers = {"Authorization": f"Bearer {HF_API_KEY}"}
+            r = requests.post(HF_API_URL, headers=headers, json={"inputs": final_prompt}, timeout=60)
+            if r.status_code == 200:
+                return Image.open(io.BytesIO(r.content))
+        except Exception:
+            pass
+
+    try:
+        safe = urllib.parse.quote(final_prompt[:700])
+        neg = urllib.parse.quote(negative)
+        url = f"https://api-inference.huggingface.co//{safe}?model=(models/black-forest-labs/FLUX.1-schnell)"
+        r = requests.get(url, timeout=25)
+        if r.status_code == 200:
+            return Image.open(io.BytesIO(r.content))
+    except Exception:
+        pass
+    return None
+    
