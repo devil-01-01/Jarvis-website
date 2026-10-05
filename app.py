@@ -284,7 +284,7 @@ if not st.session_state.authenticated:
                         else:
                             st.error(f"❌ {err}")
                     
-          otp_g = st.text_input("Enter OTP", type="password", placeholder="6 Digit OTP", key="otp_gmail", label_visibility="collapsed")
+            otp_g = st.text_input("Enter OTP", type="password", placeholder="6 Digit OTP", key="otp_gmail", label_visibility="collapsed")
             st.write("")
             if st.button("Verify & Continue", use_container_width=True, type="primary", key="verify_gmail"):
                 if "otp" not in st.session_state:
