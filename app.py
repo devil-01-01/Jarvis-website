@@ -36,40 +36,8 @@ st.markdown("""
     }
     
     /* Hide Default UI Elements */
-    .stDeployButton, [data-testid="stToolbar"], footer, #MainMenu {
-        display: none !important;
-    }
+        streamlit app logo
     
-    div.block-container {
-        padding-top: 1.5rem !important;
-        max-width: 900px;
-    }
-    
-    /* Sidebar Styling */
-    section[data-testid="stSidebar"] {
-        background-color: #F8F9FA !important;
-        border-right: 1px solid #E0E0E0 !important;
-    }
-
-    /* Input & Button Styling */
-    .stTextInput > div > div {
-        background-color: #F1F3F4 !important;
-        color: #1F1F1F !important;
-        border-radius: 12px !important;
-        border: 1px solid #C4C7C5 !important;
-    }
-    
-    .stButton > button {
-        border-radius: 20px !important;
-        border: 1px solid #C4C7C5 !important;
-        font-weight: 500 !important;
-        background-color: #FFFFFF;
-        color: #1F1F1F;
-    }
-    .stButton > button:hover {
-        background-color: #F1F3F4;
-    }
-
     /* Watermark Styling */
     .jarvis-watermark {
         position: fixed;
