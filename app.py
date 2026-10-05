@@ -93,9 +93,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # -----------------------------------------------------------------------------
-# 2. COOKIE MANAGER INITIALIZATION
+# 2. COOKIE MANAGER INITIALIZATION (FIXED)
 # -----------------------------------------------------------------------------
-@st.cache_resource
+# Hata diya gaya @st.cache_resource taaki CachedWidgetWarning na aaye
 def get_cookie_manager():
     return stx.CookieManager(key="jarvis_cookie_manager")
 
