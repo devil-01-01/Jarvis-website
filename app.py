@@ -179,8 +179,8 @@ else:
                 try:
                     groq_resp = groq_client.chat.completions.create(
                         messages=[{"role": "user", "content": user_query}],
-                        model="llama-3.3-70b-versatile",)
                         model="openai/gpt-oss-20b"
+                    )    
                     responses["Groq"] = groq_resp.choices[0].message.content
                 except Exception as e:
                     responses["Groq"] = f"Error: {str(e)}"
