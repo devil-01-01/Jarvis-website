@@ -482,3 +482,45 @@ else:
             if "image" in msg:
                 st.image(msg["image"])
       
+if page == "💬 Chat Workspace":
+    st.subheader("⚙️ Control Panel")
+    selected_model = st.selectbox("🤖 Selected Model", MODEL_LIST, index=0, key="sb_model")
+    selected_mode_name = st.selectbox("🎭 Assistant Persona", list(MODES.keys()), key="sb_mode")
+        
+    # ---------------------------------------------------------
+    # 🔒 TERMS & CONDITIONS CHECKBOX (Control Panel ke Niche)
+    # ---------------------------------------------------------
+    st.divider()
+    st.subheader("📜 Permissions & Terms")
+        
+    agreed = st.checkbox(
+        "I agree to the Terms & Conditions and grant Google OAuth access.", 
+        value=st.session_state.get("terms_agreed", False),
+        key="terms_checkbox"
+    )
+    st.session_state.terms_agreed = agreed
+
+    if agreed:
+        st.success("✅ Consent Granted")
+    else:
+        st.warning("⚠️ Access Limited (Accept terms for full features)")
+    # ---------------------------------------------------------
+
+    st.divider()
+    st.subheader("📜 Chat History")
+        
+    history_str = "\n".join([f"{m['role'].upper()}: {m['content']}" for m in st.session_state.messages])
+        
+    st.download_button(
+        label="💾 Save History",
+        data=history_str if history_str else "No History",
+        file_name=f"jarvis_history_{datetime.date.today()}.txt",
+        mime="text/plain",
+        use_container_width=True,
+        key="dl_history_btn"
+    )
+        
+    if st.button("🗑️ Clear History", use_container_width=True, key="clear_chat_btn"):
+        st.session_state.messages = []
+        st.rerun()
+    
