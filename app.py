@@ -87,7 +87,7 @@ else:
         else:
             try:
                 genai.configure(api_key=gemini_key.strip())
-                model = genai.GenerativeModel("gemini-3.8-flash")
+                model = genai.GenerativeModel("gemini-3.6-flash")
                 
                 # Streaming response for immediate visible output
                 st.markdown("### 🎯 Answer")
