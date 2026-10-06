@@ -150,7 +150,7 @@ else:
       with st.chat_message("assistant"):
         try:
           genai.configure(api_key=gemini_key.strip())
-          model = genai.GenerativeModel("gemini-2.0-flash")
+          model = genai.GenerativeModel("gemini-3.6-flash")
 
           response_placeholder = st.empty()
           full_response = ""
