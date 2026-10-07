@@ -3,3 +3,4 @@ streamlit-oauth
 google-generativeai
 google-genai
 extra-streamlit-components
+groq
