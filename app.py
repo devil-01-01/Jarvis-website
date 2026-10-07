@@ -202,7 +202,7 @@ if user_query := st.chat_input("Ask JARVIS or request an image..."):
         )
 
         response = client.models.generate_content(
-            model="gemini-2.0-flash", contents=user_query, config=config
+            model="gemini-3.6-flash", contents=user_query, config=config
         )
 
         st.markdown(response.text)
