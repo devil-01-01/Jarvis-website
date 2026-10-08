@@ -23,5 +23,5 @@ st.markdown("""
 
 ### 📩 Contact Developer
 If you encounter any issues or need custom features:
-- **Email Support:** `jarvis.developer.001@gmail.com`
+- **Email Support:** `jarvisapp.support@gmail.com`
 """)
