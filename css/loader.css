@@ -1,0 +1,12 @@
+
+/* Pulse fade effect for the text loader element */
+.thinking-text {
+    color: #e0af68;
+    font-style: italic;
+    font-weight: bold;
+    animation: blinker 1.2s linear infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0.3; }
+}
