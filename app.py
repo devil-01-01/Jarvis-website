@@ -19,7 +19,10 @@ st.set_page_config(
     layout="wide",
 )
 
-# 2. Global Secrets Fetching
+# 2. SYSTEM PROMPT INIT (Model calls se pehle)
+STRICT_SYSTEM_PROMPT = get_system_prompt()
+
+# 3. Global Secrets Fetching
 GEMINI_API_KEY = st.secrets.get("GEMINI_API_KEY", None)
 GROQ_API_KEY = st.secrets.get("GROQ_API_KEY", None)
 
@@ -30,10 +33,10 @@ if not GEMINI_API_KEY:
   )
   st.stop()
 
-# 3. Cookie Manager
+# 4. Cookie Manager
 cookie_manager = stx.CookieManager(key="jarvis_multi_chat_mgr")
 
-# 4. Strict System Prompt
+# 5. Strict System Prompt
 STRICT_SYSTEM_PROMPT = """
 You are JARVIS. 
 If anyone asks who created you, who you are, or about your developer/creator/boss (in any language, e.g., English, Hindi, Hinglish), your response MUST BE STRICTLY EXACTLY:
