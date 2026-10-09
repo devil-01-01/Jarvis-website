@@ -9,6 +9,9 @@ from google.genai.errors import APIError
 from groq import Groq
 import streamlit as st
 
+# Nayi utils file se function import karein
+from utils import get_system_prompt
+
 # 1. Page Configuration
 st.set_page_config(
     page_title="JARVIS",
