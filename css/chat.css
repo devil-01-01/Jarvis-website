@@ -1,0 +1,147 @@
+
+/* ==========================================================================
+   1. GLOBAL CHAT FEED WRAPPERS
+   ========================================================================== */
+
+[data-testid="stChatMessageContainer"] {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 24px !important;
+    background: transparent !important;
+    width: 100% !important;
+}
+
+[data-testid="stChatMessage"] {
+    background-color: transparent !important;
+    width: 100% !important;
+}
+
+/* ==========================================================================
+   2. 🤖 GEMINI / JARVIS CHAT BUBBLE (LEFT ALIGNED)
+   ========================================================================== */
+
+/* Target the text box wrapper for Gemini */
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarAssistant"]) [data-testid="stMarkdownContainer"] {
+    background-color: #161925 !important; 
+    color: #e0af68 !important; 
+    border: 1px solid #1f2335 !important;
+    border-left: 4px solid #00ffcc !important; /* Cyan highlight line */
+    border-radius: 4px 16px 16px 16px !important; 
+    padding: 12px 18px !important;
+    display: inline-block !important;
+    max-width: 75% !important;
+    display: block !important;
+    width: fit-content !important;
+    max-width: 70% !important;
+    margin-right: auto !important;
+    
+    /* Cyan Neon Glow */
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.15), inset 0 0 8px rgba(0, 255, 204, 0.05) !important;
+}
+
+/* ==========================================================================
+   3. 👤 USER CHAT BUBBLE (RIGHT ALIGNED NO-CONFLICT ENGINE)
+   ========================================================================== */
+
+/* Force the outer block to flip layout order natively */
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) {
+    display: flex !important;
+    flex-direction: row-reverse !important; 
+    justify-content: flex-start !important;
+}
+
+/* Force the text column box block to push flush right against the avatar boundary */
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stChatMessageContent"] {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: self-end !important; /* Pulls text frames straight right */
+    display: block !important;
+    width: fit-content !important;
+    max-width: 70% !important;
+    margin-left: auto !important;
+    direction: rtl !important;
+}
+
+/* Style the text bubble card for the User */
+[data-testid="stChatMessage"]:has([data-testid="stChatMessageAvatarUser"]) [data-testid="stMarkdownContainer"] {
+    background-color: #12131c !important; 
+    color: #00ffcc !important; 
+    border: 1px solid #1f2335 !important;
+    border-right: 4px solid #ff4a4a !important; /* Crimson highlight line on the right edge */
+    border-radius: 16px 4px 16px 16px !important; /* Sharp top-right corner styling */
+    padding: 12px 18px !important;
+    display: inline-block !important; /* Wraps bubble skin perfectly around text lines */
+    max-width: 75% !important; 
+    text-align: right !important; /* Words read standard left-to-right */
+    display: inline !important;         /* Strips the full-width block behavior from text strings */
+    width: auto !important;             /* Allows text to dictate its own size */
+    word-break: break-word !important;  /* Wraps beautifully when it runs out of space */
+    white-space: pre-wrap !important;   /* Keeps your multiline Enter/Return breaks working */
+
+    
+    /* Crimson Red Neon Glow */
+    box-shadow: 0 0 15px rgba(255, 74, 74, 0.15), inset 0 0 8px rgba(255, 74, 74, 0.05) !important;
+}
+
+/* ==========================================================================
+   4. SYSTEM AVATAR SETTINGS
+   ========================================================================== */
+
+div[data-testid="stChatMessageAvatarAssistant"],
+div[data-testid="stChatMessageAvatar"] {
+    background-color: #ff0000 !important;
+    border: 1px solid #1f2335 !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    flex-shrink: 0 !important;
+    margin: 0 12px !important;
+}
+div[data-testid="stChatMessageAvatarUser"],
+div[data-testid="stChatMessageAvatar"] {
+    background-color: #af9503 !important;
+    border: 1px solid #1f2335 !important;
+    border-radius: 50% !important;
+    width: 40px !important;
+    height: 40px !important;
+    flex-shrink: 0 !important;
+    margin: 0 12px !important;
+}
+
+/* ==========================================================================
+   2. MAIN INTERFACE TITLE (JARVIS INTERFACE - REAPPEARING GRADIENT LINE)
+   ========================================================================== */
+
+[data-testid="stHeaderBlockContainer"] h1, 
+[data-testid="stMainBlockContainer"] h1 {
+    position: relative !important; /* Required to lock the new line to the bottom of the text */
+    font-weight: 800 !important;
+    font-size: 2.5rem !important;
+    letter-spacing: -0.04em !important;
+    margin-bottom: 2rem !important; /* Added space so the line has breathing room */
+    padding-bottom: 16px !important; /* Space between text and the line */
+    
+    /* The Text Gradient */
+    background: linear-gradient(135deg, #7A0010 0%, #D41313 45%, #FFD700 80%, #FFA500 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    
+    /* Remove any old border properties that might be breaking */
+    border: none !important;
+}
+
+/* 🌟 THE RESCUE LINE: Draws a perfect, un-droppable gradient track 🌟 */
+[data-testid="stHeaderBlockContainer"] h1::after,
+[data-testid="stMainBlockContainer"] h1::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important; /* Stretches the line across the header width */
+    height: 3px !important;  /* Sharp, crisp thickness */
+    border-radius: 2px !important;
+    
+    /* Static Gradient mapping */
+    background: linear-gradient(135deg, #7A0010 0%, #D41313 45%, #FFD700 80%, #FFA500 100%) !important;
+  }
