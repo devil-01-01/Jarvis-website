@@ -4,3 +4,5 @@ google-generativeai
 google-genai
 extra-streamlit-components
 groq
+streamlit-js-eval
+pytz
