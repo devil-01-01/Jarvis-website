@@ -1,0 +1,126 @@
+/* ==========================================================================
+   GLOBAL BACKGROUND & CANVAS ALIGNMENT
+   ========================================================================== */
+
+/* Overall viewport background canvas profile */
+.stApp {
+    background-color: #0d0e15;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+
+/* Hard reset for the system's sticky bottom structural dock alignment zone */
+.stChatFloatingInputContainer {
+    background-color: transparent !important;
+    bottom: 24px !important;
+    left: 0;
+    right: 0;
+    padding: 0 !important;
+}
+
+/* ==========================================================================
+   🌟 UNIFIED SIDE-BY-SIDE INTERACTIVE LAYOUT FRAME
+   ========================================================================== */
+
+/* Target the core box wrapping the internal interactive components */
+.stChatInput {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important; /* Visual spacing separating input bar from button */
+    
+    /* Reconstruct cyber shell background skin parameters natively */
+    background-color: #12131c !important;
+    border: 1px solid #1f2335 !important;
+    border-bottom: 2px solid #00ffcc !important;
+    border-radius: 20px !important;
+    padding: 12px 16px !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
+    
+    /* Configures time physics for the glowing border interpolation */
+    transition: border 0.25s ease-in-out, box-shadow 0.25s ease-in-out !important;
+}
+
+/* 🌟 NEON GLOW ACTIVE FIX: Forces the entire container bar to light up on interaction */
+.stChatInput:focus-within {
+    border: 1px solid #00ffcc !important;
+    border-bottom: 5px solid #00ffcc !important;
+    box-shadow: 0 0 18px rgba(0, 255, 204, 0.45), inset 0 0 6px rgba(0, 255, 204, 0.15) !important;
+}
+
+/* ==========================================================================
+   TEXTAREA CONTROLS (PROMPT ENTRY)
+   ========================================================================== */
+
+/* Internal raw prompt entry string field customizations */
+.stChatInput textarea {
+    flex: 1 !important; /* Directs text line to stretch and take up horizontal area */
+    background-color: transparent !important; /* Keeps container background seamless */
+    color: #00ffcc !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 18px !important;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    padding: 0px 0px !important;
+    scrollbar-width: none !important; /* Drops Firefox tracking markers */
+}
+
+/* Purges system level scroll layout arrow boxes on Webkit applications */
+.stChatInput textarea::-webkit-scrollbar,
+.stChatInput textarea::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0px !important;
+    height: 0px !important;
+}
+
+/* Custom design profile for placeholder ghost text string */
+.stChatInput textarea::placeholder {
+    color: rgba(0, 255, 191, 0.452) !important;
+    font-style: italic !important;
+}
+
+/* ==========================================================================
+   STANDALONE ACTION BUTTON & ICON ROTATION HOVER FIX
+   ========================================================================== */
+
+/* Detaches target submission button control to sit on its own right edge */
+.stChatInput button {
+    position: relative !important;
+    right: unset !important;
+    top: unset !important;
+    background-color: #1a1b26 !important;
+    color: #00ffcc !important;
+    border: 1px solid #00ffcc !important;
+    border-radius: 6px !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease-in-out !important;
+    cursor: pointer !important;
+}
+
+/* 🌟 UNIVERSAL ICON TARGETING: Grabs any child elements inside the action button wrapper */
+.stChatInput button * {
+    display: inline-block !important;
+    color: #00ffcc !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s ease !important;
+    transform-origin: center center !important;
+    transform: rotate(0deg) !important;
+}
+
+/* Color block inversion properties on active cursor hover action */
+.stChatInput button:hover {
+    background-color: #00ffcc !important;
+    color: #12131c !important;
+    box-shadow: 0 0 12px rgba(0, 255, 204, 0.5) !important;
+}
+
+/* 🌟 HOVER ICON ROTATION FIX: Targets all structural tree children of the button to twist */
+.stChatInput button:hover * {
+    color: #000000 !important;
+    transform-origin: center center !important;
+    transform: rotate(45deg) !important;
+}
