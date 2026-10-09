@@ -6,3 +6,4 @@ extra-streamlit-components
 groq
 streamlit-js-eval
 pytz
+Wikipedia
