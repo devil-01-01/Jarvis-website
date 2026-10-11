@@ -252,7 +252,7 @@ if user_query := st.chat_input("Ask JARVIS or request an image..."):
 
       try:
         response = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-3.6-flash",
             contents=(
                 f"System Context: {STRICT_SYSTEM_PROMPT}{wiki_context}\nUser"
                 f" Prompt: {user_query}"
