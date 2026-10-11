@@ -12,7 +12,6 @@ import streamlit as st
 # Import helpers, prompt builder, and toolbar from utils.py
 from utils import (
     get_system_prompt,
-    render_chat_action_toolbar,
     search_wikipedia,
 )
 
@@ -141,9 +140,6 @@ for msg in messages:
       st.image(msg["content"], caption=msg.get("caption", "Generated Visual"))
     else:
       st.markdown(msg["content"])
-
-# Render Gemini-Style Action Toolbar before chat input
-render_chat_action_toolbar()
 
 if user_query := st.chat_input("Ask JARVIS or request an image..."):
   if len(messages) == 0:
